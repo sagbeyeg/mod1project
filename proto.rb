@@ -57,7 +57,7 @@ class Story
         end
     end
 
-    def selection(index)
+    def selection(index) 
         if(choice_ids[index] == 'A')
              level(index + 1) ## INDEX + 1
         else(choice_ids[index] == 'B')
@@ -69,8 +69,6 @@ class Story
         level(0)     ## ['A']
         selection(0) ## ['A', 'A'] 
         selection(1) ## ['A', 'A', 'B']
-        selection(2)
-
     end
 
 
