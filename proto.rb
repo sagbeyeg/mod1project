@@ -1,3 +1,6 @@
+require 'ruby2d'
+
+
 class Player
 	attr_reader :name, :choice_id
 
