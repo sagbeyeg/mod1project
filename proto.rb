@@ -103,6 +103,4 @@ ourStory = Story.new()
 ourStory.story
 
 
-
-
 ## number system for choices will greatly reduce the layers of complexity 
