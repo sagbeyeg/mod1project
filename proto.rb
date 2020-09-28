@@ -35,17 +35,27 @@ class Story
         @choice_ids = []
     end
 
-    def level(index)
-        puts choices[index].question
-        user_input = gets.chomp
-        if(user_input == 'A')
-            choice_ids.push(choices[index].a_choice)
-        elsif (user_input == 'B')
-            choice_ids.push(choices[index].b_choice)
-        
+    def gameOver?(choice)
+        if(choice[:gameOver?])
+            puts choice[:text]
+            exit
         end
     end
 
+    def level(index)
+        choice = choices[index]
+
+        puts choice.question
+        user_input = gets.chomp
+
+        if(user_input == 'A')
+            gameOver?(choice.a_choice)
+            choice_ids.push(choice.a_choice[:id])
+        elsif (user_input == 'B')
+            gameOver?(choice.b_choice)
+            choice_ids.push(choice.b_choice[:id])
+        end
+    end
 
     def selection(index)
         if(choice_ids[index] == 'A')
@@ -76,9 +86,14 @@ player1 = Player.new('Ab')
 
 choiceA = Choice.new("Midnight. You’ve been out for a while and are finding your way back home. \n 
 You don’t remember how you got here or where you came from, however, this forest seems familiar, \n
-but you can’t be too sure. \n (A) You venture into the woods \n (B) You decide to head back home", 'A', 'B') ##the 0 index of storys.choices
-choiceB = Choice.new("You went into the woods \n (A) You go further (B) You head back", 'A', 'B') ##Storys.choices index == 1
-choiceC = Choice.new("You went home \n (A) You go further (B) You head back", "A", 'B') ## Storys.choices index == 2
+but you can’t be too sure. \n(A) You venture into the woods \n(B) You decide to head back home", 
+{ id: 'A', gameOver?: false }, {id: 'B', gameOver?: true, text: 'You lost!'}) ##the 0 index of storys.choices
+
+choiceB = Choice.new("You went into the woods \n (A) You go further (B) You head back", 
+{id: 'A', gameOver?: false }, {id: 'B', gameOver?: true, text: 'You lost!'}) ##Storys.choices index == 1
+
+choiceC = Choice.new("You went home \n (A) You go further (B) You head back", 
+{ id: 'A', gameOver?: false }, {id: 'B', gameOver?: true, text: 'You lost!'}) ## Storys.choices index == 2
 
 
 
