@@ -1,3 +1,6 @@
+require 'ruby2d'
+
+
 class Player
 	attr_reader :name, :choice_id
 
@@ -98,8 +101,6 @@ choice_storyline1_B = Choice.new("You went home \n (A) You go further (B) You he
 ourStory = Story.new()
 
 ourStory.story
-
-
 
 
 ## number system for choices will greatly reduce the layers of complexity 
