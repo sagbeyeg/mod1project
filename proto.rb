@@ -1,14 +1,3 @@
-require 'ruby2d'
-
-
-class Player
-	attr_reader :name, :choice_id
-
-	def initialize(name)
-		@name = name
-		@choice_ids = []
-	end
-end
 
 class Choice
     attr_reader :question, :a_choice, :b_choice
@@ -30,60 +19,9 @@ class Choice
 end
 
 
-class Story
-	attr_reader :choices, :choice_ids
-
-	def initialize()
-		@choices = Choice.all
-        @choice_ids = []
-    end
-
-    def gameOver?(choice)
-        if(choice[:gameOver?])
-            puts choice[:text]
-            exit
-        end
-    end
-
-    def level(index)
-        choice = choices[index]
-
-        puts choice.question
-        user_input = gets.chomp
-
-        if(user_input == 'A')
-            gameOver?(choice.a_choice)
-            choice_ids.push(choice.a_choice[:id])
-        elsif (user_input == 'B')
-            gameOver?(choice.b_choice)
-            choice_ids.push(choice.b_choice[:id])
-        end
-    end
-
-    def selection(index) 
-        if(choice_ids[index] == 'A')
-             level(index + 1) ## INDEX + 1
-        else(choice_ids[index] == 'B')
-            level(index + 2)  ## INDEX + 2
-        end
-    end
-
-    def story 
-        level(0)     ## ['A']
-        selection(0) ## ['A', 'A'] 
-        selection(1) ## ['A', 'A', 'B']
-    end
 
 
 
-
-
-    
-
-end
-
-
-player1 = Player.new('Ab')
 
 choice = Choice.new("Midnight. You’ve been out for a while and are finding your way back home. \n 
 You don’t remember how you got here or where you came from, however, this forest seems familiar, \n
@@ -98,7 +36,6 @@ choice_storyline1_B = Choice.new("You went home \n (A) You go further (B) You he
 
 
 
-ourStory = Story.new()
 
 ourStory.story
 
