@@ -1,6 +1,6 @@
 require_relative 'models/Choice.rb'
 require_relative './models/Player.rb'
-#require_relative './models/ruby2d.rb'
+require_relative './models/ruby2d.rb'
 require_relative './models/Story.rb'
 require_relative './models/AllChoices.rb'
 
