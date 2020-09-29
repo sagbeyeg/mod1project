@@ -1,5 +1,4 @@
 require 'ruby2d'
-require_relative '../tools/main.rb'
 require_relative 'Story.rb'
 require_relative 'Player.rb'
 require_relative 'AllChoices.rb'
@@ -42,10 +41,10 @@ class PlayerSelectScreen
       enter_to_start
     end
 
-    def opening_crawl
-      title_text = Text.new("T E S T", font: "fonts/Amatic-Bold.ttf", size: 30, y: 100, z: 160,  color: "black")
-      title_text.x = (Window.width - title_text.width) / 2
-    end
+    # def opening_crawl
+    #   title_text = Text.new("T E S T", font: "fonts/Amatic-Bold.ttf", size: 30, y: 100, z: 160,  color: "black")
+    #   title_text.x = (Window.width - title_text.width) / 2
+    # end
 end
 
 def enter_to_start
