@@ -53,7 +53,5 @@ class Story
             selection(choice_ids[current_selection])
             current_selection += 1
         end
-
     end    
-
 end
