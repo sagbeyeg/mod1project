@@ -5,10 +5,10 @@ set title: "Sequentia: An Interactive Story"
 set width: 900
 set height: 600
 
-background = Image.new('images/parallax-forest-back-trees.png', width: 900, height: 600)
-background = Image.new('images/parallax-forest-lights.png', width: 900, height: 600)
-background = Image.new('images/parallax-forest-middle-trees.png', width: 900, height: 600)
-background = Image.new('images/parallax-forest-front-trees.png', width: 900, height: 600)
+background = Image.new('images/parallax-forest-back-trees.png', width: 900, height: 550)
+background = Image.new('images/parallax-forest-lights.png', width: 900, height: 550)
+background = Image.new('images/parallax-forest-middle-trees.png', width: 900, height: 550)
+background = Image.new('images/parallax-forest-front-trees.png', width: 900, height: 550)
 
 Rectangle.new(
   x: 0, y: 470,
