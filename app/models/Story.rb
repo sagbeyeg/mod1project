@@ -32,7 +32,7 @@ class Story
         #   end
         
         user_input = gets.chomp
-        player_choice = (user_input == 'A') ? choice.a_choice : choice.b_choice
+        player_choice = (user_input.upcase == 'A') ? choice.a_choice : choice.b_choice
         gameOver?(player_choice)
         choice_ids.push(player_choice[:id])
     end
