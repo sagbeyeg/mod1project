@@ -14,7 +14,7 @@ choice_level1_0B = Choice.new("You ran back home home \n(A) Make lunch (B) Go to
 { id: '2A', gameOver?: false }, 
 {id: '2B', gameOver?: true, text: 'You sleep, ya lose!'}, '0B')
 
-choice_level2_1A = Choice.new("Further into the woods you go, you now see a fox (A) Fight Fox (B)Ignore Fox", 
+choice_level2_1A = Choice.new("Further into the woods you go, you now see a fox \n(A) Fight Fox (B)Ignore Fox", 
 { id: '3A', gameOver?: true, text: "Dont fight animals! You lose"}, 
 { id: '3B', gameOver?: true, text: 'Dont ignore animals! You lose'}, '1A')
 
