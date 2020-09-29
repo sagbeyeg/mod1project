@@ -1,4 +1,11 @@
 require 'ruby2d'
+require_relative '../main.rb'
+require_relative 'Story.rb'
+require_relative 'Player.rb'
+require_relative 'AllChoices.rb'
+
+player1 = Player.new('Ab')
+ourStory = Story.new(player1)
 
 set title: "Sequentia: An Interactive Story"
 
@@ -43,7 +50,7 @@ end
 
 on :key_down do |event|
   if event.key == 'return'
-    puts event.key
+    ourStory.story
   end
 end
 

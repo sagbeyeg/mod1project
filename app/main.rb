@@ -12,8 +12,5 @@ ourStory = Story.new(player1)
 
 
 
-ourStory.story
-
-
 
 

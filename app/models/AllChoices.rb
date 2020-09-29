@@ -30,6 +30,8 @@ choice_level2_2A = Choice.new("Lunch was great! Now what? \n(A) Go to sleep (B) 
  {id: '6A', gameOver?: true, text: 'You sleep, ya lose!'}, 
  {id: '6B', gameOver?: true, text: 'You sleep, ya lose!'}, '4B')
 
+ 
+
 ## here we have on uneven amount of gameovers and it works ^-^
 
 
