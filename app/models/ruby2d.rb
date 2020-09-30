@@ -3,8 +3,7 @@ require_relative 'GUIStory.rb'
 require_relative 'Player.rb'
 require_relative 'AllChoices.rb'
 
-player1 = Player.new('Ab')
-ourStory = GUIStory.new(player1)
+ourStory = nil
 
 set title: "Sequentia: An Interactive Story"
 
@@ -63,12 +62,16 @@ end
 player_select_screen = PlayerSelectScreen.new
 
 on :key_down do |event|
-  if event.key == 'return' && ourStory.current_selection == 0
+  if event.key == 'return' && !ourStory
     player_select_screen.remove_text
+    player1 = Player.new('Ab')
+    ourStory = GUIStory.new(player1)
   elsif event.key == 'a'
+    ourStory.remove
     ourStory.grabInput('A')
     ourStory.nextSelection
   elsif event.key == 'b'
+    ourStory.remove
     ourStory.grabInput('B')
     ourStory.nextSelection
   end
