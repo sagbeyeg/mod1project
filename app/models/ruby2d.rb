@@ -1,10 +1,10 @@
 require 'ruby2d'
-require_relative 'Story.rb'
+require_relative 'GUIStory.rb'
 require_relative 'Player.rb'
 require_relative 'AllChoices.rb'
 
 player1 = Player.new('Ab')
-ourStory = Story.new(player1)
+ourStory = GUIStory.new(player1)
 
 set title: "Sequentia: An Interactive Story"
 
@@ -53,9 +53,16 @@ def enter_to_start
 end
 
 on :key_down do |event|
-  if event.key == 'return'
-    ourStory.story
+  if event.key == 'return' && ourStory.current_selection == 0
+    ourStory.begin
+  elsif event.key == 'a' 
+    ourStory.grabInput('A')
+    ourStory.nextSelection
+  elsif event.key == 'b'
+    ourStory.grabInput('B')
+    ourStory.nextSelection
   end
+
 end
 
 player_select_screen = PlayerSelectScreen.new
