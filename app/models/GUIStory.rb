@@ -4,13 +4,14 @@ require 'ruby2d.rb'
 
 class GUIStory
     attr_reader :choices, :choice_ids, :isGameOver,  :user_input
-    attr_accessor  :current_selection
+    attr_accessor  :current_selection, :text
     def initialize(player)
         @player = player
 		@choices = Choice.all
         @choice_ids = []
         @isGameOver = false
         @current_selection = 0
+        text = nil
     end
 
     def gameOver?(choice)
@@ -24,8 +25,7 @@ class GUIStory
     def level(choice)
         puts choice
         p choice.question
-        title_text = Text.new(choice.question, font: "fonts/Amatic-Bold.ttf", size: 15, y: 80, z: 160,  color: "white")
-        title_text.x = (Window.width - title_text.width) / 2
+        text.text = choice.question
 
         if(@user_input == 'A') 
             player_choice = choice.a_choice
@@ -43,6 +43,13 @@ class GUIStory
         # choice_ids.push(player_choice[:id])
     end
 
+    def begin
+        text = Text.new(choices[0].question, font: "fonts/Amatic-Bold.ttf", size: 15, y: 80, z: 160,  color: "white")
+        text.x = (Window.width - text.width)  
+        
+        
+    end    
+
 
     def selection(choice_ID)
         choices.map { |choice_object|
@@ -51,10 +58,10 @@ class GUIStory
         end
     }
     end
+
     def firstLevel
         firstChoice = (user_input == "A") ? choices[1].question : choices[2].question
-        title_text = Text.new(firstChoice, font: "fonts/Amatic-Bold.ttf", size: 15, y: 80, z: 160,  color: "white")
-        title_text.x = (Window.width - title_text.width) / 2
+        text.text = firstChoice
         if(@user_input == 'A') 
             player_choice = choices[0].a_choice
         elsif(@user_input == 'B') 
@@ -78,10 +85,6 @@ class GUIStory
         @user_input = x
     end
 
-    def begin
-        title_text = Text.new(choices[0].question, font: "fonts/Amatic-Bold.ttf", size: 15, y: 80, z: 160,  color: "white")
-        title_text.x = (Window.width - title_text.width) / 2
-    end    
 
 end
 
