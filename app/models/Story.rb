@@ -55,3 +55,4 @@ class Story
         end
     end    
 end
+
