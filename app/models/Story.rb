@@ -3,7 +3,7 @@ require_relative 'Choice.rb'
 # require 'ruby2d.rb'
 
 class Story
-	attr_reader :choices, :choice_ids, :isGameOver
+	attr_reader :choices, :choice_ids, :isGameOver, :player
 
     def initialize(player)
         @player = player
@@ -36,7 +36,9 @@ class Story
         gameOver?(player_choice)
         choice_ids.push(player_choice[:id])
     end
-
+    def miniGame?(choice_ID)
+        if(choice_ID == '')
+        
     def selection(choice_ID) 
         choices.map { |choice_object|
         if(choice_object.last_choiceID == choice_ID)
