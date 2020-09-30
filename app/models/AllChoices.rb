@@ -1,12 +1,18 @@
+require_relative 'Choice.rb'
+require_relative 'Player.rb'
 
-intro = "Midnight. You’ve been out for a while and are finding your way back home. \n
+puts 'Enter your name'
+name = gets.chomp
+
+Player.playerName = name 
+
+choice = Choice.new("Midnight. You’ve been out for a while and are finding your way back home. \n
 You don’t remember how you got here or where you came from, however, this forest seems familiar, \n
-but you can’t be too sure. \n(A) You venture into the woods \n(B) You run back home"
-choice = Choice.new(intro, { id: '0A', gameOver?: false }, {id: '0B', gameOver?: false}, '00')
+but you can’t be too sure. \n(A) You venture into the woods \n(B) You run back home", { id: '0A', gameOver?: false }, {id: '0B', gameOver?: false}, '00')
 
 
-
-choice_level1_0A = Choice.new("You went into the woods \n(A) You go further (B) You head back", 
+p choice
+choice_level1_0A = Choice.new("#{Player.playerName} You went into the woods \n(A) You go further (B) You head back", 
 {id: '1A', gameOver?: false },
 {id: '1B', gameOver?: false}, '0A') 
 
