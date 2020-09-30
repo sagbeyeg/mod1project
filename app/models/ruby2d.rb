@@ -31,14 +31,23 @@ Rectangle.new(
 )
 
 class PlayerSelectScreen
+  attr_accessor :title_text, :player_select_text, :title_text, :start_text
+
     def initialize
-      title_text = Text.new("SEQUENTIA", font: "fonts/Amatic-Bold.ttf", size: 72, y: 230, z: 160,  color: "black")
+      @title_text = Text.new("SEQUENTIA", font: "fonts/Amatic-Bold.ttf", size: 72, y: 230, z: 160,  color: "black")
       title_text.x = (Window.width - title_text.width) / 2
   
-      player_select_text = Text.new("AN INTERACTIVE STORY", font: "fonts/Amatic-Bold.ttf", size: 50, y: 300, color: "black")
+      @player_select_text = Text.new("AN INTERACTIVE STORY", font: "fonts/Amatic-Bold.ttf", size: 50, y: 300, color: "black")
       player_select_text.x = (Window.width - player_select_text.width) / 2
       
-      enter_to_start
+      @start_text = Text.new( "P R E S S   E N T E R",font: "fonts/Amatic-Bold.ttf", size: 35, y: 500, z: 160, color: "white")
+      start_text.x = (Window.width - start_text.width) / 2
+    end
+
+    def remove_text
+      title_text.remove
+      player_select_text.remove
+      start_text.remove
     end
 
     # def opening_crawl
@@ -47,15 +56,16 @@ class PlayerSelectScreen
     # end
 end
 
-def enter_to_start
-  start_text = Text.new( "P R E S S   E N T E R",font: "fonts/Amatic-Bold.ttf", size: 35, y: 500, z: 160, color: "white")
-  start_text.x = (Window.width - start_text.width) / 2
-end
+  # start_text = Text.new( "P R E S S   E N T E R",font: "fonts/Amatic-Bold.ttf", size: 35, y: 500, z: 160, color: "white")
+  # start_text.x = (Window.width - start_text.width) / 2
+
+
+player_select_screen = PlayerSelectScreen.new
 
 on :key_down do |event|
   if event.key == 'return' && ourStory.current_selection == 0
-    ourStory.begin
-  elsif event.key == 'a' 
+    player_select_screen.remove_text
+  elsif event.key == 'a'
     ourStory.grabInput('A')
     ourStory.nextSelection
   elsif event.key == 'b'
@@ -64,8 +74,6 @@ on :key_down do |event|
   end
 
 end
-
-player_select_screen = PlayerSelectScreen.new
 
 # on :key_down do |event|
 #   case event.key
