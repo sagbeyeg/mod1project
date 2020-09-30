@@ -69,10 +69,10 @@ on :key_down do |event|
   elsif event.key == 'a'
     ourStory.remove
     ourStory.grabInput('A')
-    ourStory.nextSelection
   elsif event.key == 'b'
     ourStory.remove
     ourStory.grabInput('B')
+  elsif event.key == 'return'
     ourStory.nextSelection
   end
 

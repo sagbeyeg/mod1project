@@ -1,3 +1,4 @@
+
 intro = "Midnight. You’ve been out for a while and are finding your way back home. \n
 You don’t remember how you got here or where you came from, however, this forest seems familiar, \n
 but you can’t be too sure. \n(A) You venture into the woods \n(B) You run back home"
@@ -12,7 +13,9 @@ choice_level1_0A = Choice.new("You went into the woods \n(A) You go further (B) 
 
 choice_level1_0B = Choice.new("You ran back home home \n(A) Make lunch (B) Go to sleep", 
 { id: '2A', gameOver?: false }, 
-{id: '2B', gameOver?: true, text: 'You sleep, ya lose!'}, '0B')  
+{id: '2B', gameOver?: true, text: 'You sleep, ya lose!'}, '0B')
+
+
 choice_level2_1A = Choice.new("Further into the woods you go, you now see a fox \n(A) Fight Fox (B)Ignore Fox", 
 { id: '3A', gameOver?: true, text: "Dont fight animals! You lose"}, 
 { id: '3B', gameOver?: true, text: 'Dont ignore animals! You lose'}, '1A')
