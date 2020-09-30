@@ -27,7 +27,7 @@ class GUIStory
         
 
     def level(choice)
-        
+        p choice_ids
         @level_text = Text.new(choice.question, font: "fonts/Amatic-Bold.ttf", size: 15, y: 90, z: 160,  color: "white")
         level_text.x = (Window.width - level_text.width)  
         player_choice = (@user_input == 'A') ? choice.a_choice : choice.b_choice
@@ -51,6 +51,7 @@ class GUIStory
         p choice_ID
         choices.map { |choice_object|
         if(choice_object.last_choiceID == choice_ID)
+            p choice_object
             level(choice_object)    
         end
     }
@@ -68,7 +69,7 @@ class GUIStory
         if(@current_selection == 0) 
             firstLevel
         else
-            current_selection
+            p choice_ids
             selection(choice_ids[@current_selection - 1 ])
         end
         @current_selection += 1
@@ -80,4 +81,3 @@ class GUIStory
 
 
 end
-
