@@ -1,4 +1,18 @@
-#INTRO
+require_relative 'Cli.rb'
+
+
+player = Cli.determinePlayer
+# story.player = player 
+# check player Progress 
+# if Player has Progress -> story.findWhereLeftOff  ELSE -> story.begin 
+# story = Story.new
+ 
+story = Story.create({isGameOver: false, lastChoice: '00'})
+
+story.player = player
+
+p story.playerName
+
 intro = "You're running scared, you have no idea how you got here, where *here* even is, or why you're almost certain 
     \nthat slowing down would mean your death. As you turn the corner you see... A pitch black wall? No...it's a dome 
     \nreaching up so high that you'd mistaken it for the night sky. Do you? 
@@ -6,7 +20,7 @@ intro = "You're running scared, you have no idea how you got here, where *here* 
     \n(B) Forget about the wall! Potential death is approaching! Run!"
 choice = Choice.new(intro, { id: '0A', gameOver?: false }, {id: '0B', gameOver?: false}, '00')
 
-
+#INTRO
 #LEVEL 1 -> From intro, (A) you touch the dome
 choice_level1 = Choice.new("You touch the wall, and you don't die, yay! Instead your hand passes through  
     the dome... What the heck?! The air feels humid on the other side. Do you? 
@@ -34,7 +48,7 @@ choice_level3 = Choice.new("You step carefully in the opposite direction, well a
     \n (A) HIDE! You have no idea what's going on and they could be dangerous!
     \n (B) They might know something about who you are or what's going on. You decide to wait for them, but you grab a heavy stick just
     \n in case they aren't too friendly", 
-{ id: '3A', gameOver?: true, text: "You slip into the dense undergrowth and your brushes against something. It's a snake! It bites you and you die! \nGAME OVER! YOU LOST!"}, 
+{ id: '3A', gameOver?: true, text: "You slip into the dense undergrowth and your hand brushes against something. It's a snake! It bites you and you die! \nGAME OVER! YOU LOST!"}, 
 { id: '3B', gameOver?: false}, '2B') 
 
 

@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 3) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "LastChoice_ID"
+    t.string "username"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.boolean "isGameOver"
+    t.integer "player_id"
+    t.string "lastChoice"
   end
 
 end
