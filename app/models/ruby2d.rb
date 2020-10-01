@@ -3,6 +3,7 @@ require_relative 'GUIStory.rb'
 require_relative 'Player.rb'
 require_relative 'AllChoices.rb'
 
+
 ourStory = nil
 
 set title: "Sequentia: An Interactive Story"
@@ -77,7 +78,6 @@ on :key_down do |event|
   end
 
 end
-
 # on :key_down do |event|
 #   case event.key
 #   when 'left'
