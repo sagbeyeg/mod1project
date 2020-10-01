@@ -1,13 +1,15 @@
 require_relative 'Choice.rb'
 
-
 class Story < ActiveRecord::Base
-    
+    belongs_to :player
+
     # checkIfProgressSaved
 
     # findWhereLeftOff 
     # Player.lastChoice_ID -> map through Choice.all and find the Choice that has the same last choice ID 
-
+    def playerName
+        self.player.name
+    end
 
     def gameOver?(choice)
         if(choice[:gameOver?])

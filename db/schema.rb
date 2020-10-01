@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "stories", force: :cascade do |t|
     t.boolean "isGameOver"
+    t.integer "player_id"
     t.string "lastChoice"
   end
 

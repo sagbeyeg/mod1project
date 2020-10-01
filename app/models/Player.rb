@@ -1,7 +1,7 @@
 require  'active_record'
 
 class Player < ActiveRecord::Base
-
+	has_many :stories
 	@@playerName = ''
 
 	def self.find_user(username)
