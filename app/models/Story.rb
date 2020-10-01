@@ -11,35 +11,58 @@ class Story < ActiveRecord::Base
         self.player.name
     end
 
+    def choices 
+        Choice.all
+    end
+
     def gameOver?(choice)
         if(choice[:gameOver?])
             puts choice[:text]
-            @isGameOver = true 
+            self.isGameOver = true 
         end
+    end
+
+    def grabInput(msg)
+        puts msg
+        gets.chomp
     end
 
     def level(choice)
 
-        puts choice.question 
-        user_input = gets.chomp
+        user_input = grabInput(choice.question)
+        gameSaved?(user_input)
         player_choice = (user_input.upcase == 'A') ? choice.a_choice : choice.b_choice
         gameOver?(player_choice)
-        lastChoice = player_choice[:id]
+        self.lastChoice = player_choice[:id]
     end
 
-        
+    def gameSaved?(user_input)
+        if(user_input == 'S')
+            Player.create({name: self.player.name, username: self.player.username, LastChoice_ID: self.lastChoice })
+            Player.destroy_by(id: self.player.id)
+            exit 
+        end
+    end
+
     def selection(choice_ID) 
         choices.map { |choice_object|
         if(choice_object.last_choiceID == choice_ID)
             level(choice_object)    
         end
     }
+    end
 
+    def startFrom(id)
+        selection(id)
+        until self.isGameOver == true do
+            selection(lastChoice)
+        end
     end
 
     def story 
         level(choices[0]) ## ['00']
-        until @isGameOver == true do
+        until self.isGameOver == true do
+            p lastChoice
             selection(lastChoice)
         end
     end    
