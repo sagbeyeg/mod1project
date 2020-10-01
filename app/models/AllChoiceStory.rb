@@ -1,4 +1,18 @@
-# #INTRO
+# require_relative 'Cli.rb'
+
+
+# player = Cli.determinePlayer
+# # story.player = player 
+# # check player Progress 
+# # if Player has Progress -> story.findWhereLeftOff  ELSE -> story.begin 
+# # story = Story.new
+ 
+# story = Story.create({isGameOver: false, lastChoice: '00'})
+
+# story.player = player
+
+# story.playerName
+
 # intro = "You're running scared, you have no idea how you got here, where *here* even is, or why you're almost certain 
 #     \nthat slowing down would mean your death. As you turn the corner you see... A pitch black wall? No...it's a dome 
 #     \nreaching up so high that you'd mistaken it for the night sky. Do you? 
@@ -43,22 +57,14 @@
 # { id: '4A', gameOver?: true, text: "Oh no! You hit too hard! You've killed your only chance of escape \nGAME OVER! YOU LOST!"}, 
 # { id: '4B', gameOver?: true, text: "As they hug you all your memories come rushing back! This is your partner! You're safe! \nGAME OVER! YOU WON!"}, '3B')
 
-# # #Level 2
-# # choice_level2_1A = Choice.new("Further into the woods you go, you now see a fox \n(A) Fight Fox (B)Ignore Fox", 
-# # { id: '3A', gameOver?: true, text: "Dont fight animals! You lose"}, 
-# # { id: '3B', gameOver?: true, text: 'Dont ignore animals! You lose'}, '1A')
-
-# # choice_level2_1B = Choice.new("After going into the woods you decide to head back home, on the way home you see a ghost \n(A) Fight Ghost (B) Ignore Ghost", 
-# # { id: '4A', gameOver?: true, text: "You lose(Dont fight ghost)!"}, 
-# # { id: '4B', gameOver?: false}, '1B')
-
-# # choice_level2_1C = Choice.new("Lunch was great! Now what? \n(A) Go to sleep (B) Take a nap",
-# #  {id: '5A', gameOver?: true, text: 'You sleep, ya lose!'}, 
-# #  {id: '5B', gameOver?: true, text: 'You sleep, ya lose!'}, '1C')
-
-# #  choice_level3_4B = Choice.new("You ignored that Ghost good! Now what? \n(A) Go to sleep (B) Take a nap",  
-# #  {id: '6A', gameOver?: true, text: 'You sleep, ya lose!'}, 
-# #  {id: '6B', gameOver?: true, text: 'You sleep, ya lose!'}, '4B')
+# #LEVEL 5 -> From level 4, (B) you permit the hug
+# choice_level5 = Choice.new("As this person hugs you, your memories come flooding back! They are your partner and they've come to rescue you from Purgatory..?
+#  \n Not the place between heaven and hell (although that might have been easier to escape), Purgatory is a sick game show that you were 'lucky' enough to be 
+#  \n invited to.
+#  \n (A) Hit them! Clearly this is a trap!
+#  \n (B) Permit the hug. Maybe you can trust them? A hug wouldn't hurt, you could use some comfort", 
+# { id: '4A', gameOver?: true, text: "Oh no! You hit too hard! You've killed your only chance of escape \nGAME OVER! YOU LOST!"}, 
+# { id: '4B', gameOver?: false}, '3B')
 
  
 

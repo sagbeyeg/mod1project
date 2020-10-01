@@ -4,8 +4,12 @@ class Player < ActiveRecord::Base
 
 	@@playerName = ''
 
-	def name 
-		self.name
+	def self.find_user(username)
+		Player.all.map { |player| 
+		if(player.username == username)
+			player
+		end
+		}
 	end
 
 	def self.playerName
