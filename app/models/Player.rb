@@ -1,10 +1,11 @@
-class Player
-	attr_accessor :name
+require  'active_record'
+
+class Player < ActiveRecord::Base
 
 	@@playerName = ''
 
-	def initialize(name)
-		@name = name
+	def name 
+		self.name
 	end
 
 	def self.playerName
