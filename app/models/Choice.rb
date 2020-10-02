@@ -26,14 +26,14 @@ class Choice
     # choice.player_name to ref current player
     
     def self.create 
-        intro = "\n\nPRESS S TO SAVE YOUR PROGRESS AT ANY LEVEL \nPRESS A TO SELECT CHOICE A \nPRESS B TO SELECT CHOICE B \n\nBEGIN
+        intro = "\n\nPRESS S TO SAVE YOUR PROGRESS AND COME BACK LATER \nPRESS A TO SELECT CHOICE A \nPRESS B TO SELECT CHOICE B \n\nBEGIN
         You're running scared, you have no idea how you got here, where *here* even is, or why you're almost certain 
         that slowing down would mean your deathgit . As you turn the corner you see...a pitch black wall? No...
         it's a dome reaching up so high that you'd mistaken it for the night sky. Do you? 
         \n(A) Touch the dome, it could be dangerous, but you get the feeling that it could jog your memory
         \n(B) Forget about the wall! Potential death is approaching! Run!"
         choice = Choice.new(intro, { id: '0A', gameOver?: false }, 
-        {id: '0B', gameOver?: true, text: "\n\nYou missed your only escape! You died!\n GAME OVER! YOU LOST"}, '00')
+        {id: '0B', gameOver?: true, text: "\n\nYou missed your only escape! You died!\n GAME OVER! YOU LOST! TRY AGAIN!"}, '00')
 
 
         #LEVEL 1 -> From intro, (A) you touch the dome
@@ -44,7 +44,7 @@ class Choice
         death, right?
         \n (B) Forget about the wall! Potential death is approaching!",
         {id: '1A', gameOver?: false },
-        {id: '1B', gameOver?: true, text: "\n\nYou missed your only escape! You died!\n GAME OVER! YOU LOST"}, '0A') 
+        {id: '1B', gameOver?: true, text: "\n\nYou missed your only escape! You died!\n GAME OVER! YOU LOST! TRY AGAIN!"}, '0A') 
 
         #LEVEL 2 -> From level 1, (A) you ran away from the dome
         choice_level2 = Choice.new("\n\nLEVEL 2
@@ -54,7 +54,7 @@ class Choice
         hear the faint sound of...elevator music?
         \n (A) Taking a chance has worked for you so far, you follow the music
         \n (B) Why would there be music in a rainforest? That can't mean anything good for you, you head in the opposite direction", 
-        { id: '2A', gameOver?: true, text: "\n\nYou fell right into their trap! Let's hope the experiments don't hurt too badly. \nGAME OVER! YOU LOST!"}, 
+        { id: '2A', gameOver?: true, text: "\n\nYou fell right into their trap! Let's hope the experiments don't hurt too badly. \nGAME OVER! YOU LOST! TRY AGAIN!"}, 
         {id: '2B', gameOver?: false}, '1A')
 
         #LEVEL 3 -> From level 2, (B) you head away from the music
@@ -65,7 +65,7 @@ class Choice
         \n (A) HIDE! You have no idea what's going on and they could be dangerous!
         \n (B) They might know something about who you are or what's going on. You decide to wait for them, but you grab a heavy stick just
         in case they aren't too friendly", 
-        { id: '3A', gameOver?: true, text: "\n\nYou slip into the dense undergrowth and your hand brushes against something. It's a snake! It bites you and you die! \nGAME OVER! YOU LOST!"}, 
+        { id: '3A', gameOver?: true, text: "\n\nYou slip into the dense undergrowth and your hand brushes against something. It's a snake! It bites you and you die! \nGAME OVER! YOU LOST! TRY AGAIN!"}, 
         { id: '3B', gameOver?: false}, '2B') 
 
 
@@ -75,7 +75,7 @@ class Choice
         I looked everywhere! I'm so glad I found you!', and reach out to hug you. Do you?
         \n (A) Hit them! Clearly this is a trap!
         \n (B) Permit the hug. Maybe you can trust them? A hug wouldn't hurt, you could use some comfort", 
-        { id: '4A', gameOver?: true, text: "\n\nOh no! You hit too hard! You've killed your only chance of escape! \nGAME OVER! YOU LOST!"}, 
+        { id: '4A', gameOver?: true, text: "\n\nOh no! You hit too hard! You've killed your only chance of escape! \nGAME OVER! YOU LOST! TRY AGAIN!"}, 
         { id: '4B', gameOver?: false}, '3B')
 
 
@@ -86,7 +86,7 @@ class Choice
         \n (A) Feel blood dripping out of your nose
         \n (B) Feel blood dripping out of your ears", 
         { id: '5A', gameOver?: false}, 
-        { id: '5B', gameOver?: true, text: "\n\nOh no! There was a reason why you didn't have these memories! It's too much! Too many lifetimes! You have a brain aneurism and die! \nGAME OVER! YOU LOST!"}, '4B')
+        { id: '5B', gameOver?: true, text: "\n\nOh no! There was a reason why you didn't have these memories! It's too much! Too many lifetimes! You have a brain aneurism and die! \nGAME OVER! YOU LOST! TRY AGAIN!"}, '4B')
 
 
         #LEVEL 6 -> From level 5, (B) you feel blood drip from your nose
@@ -96,11 +96,11 @@ class Choice
         all humans and claim this planet. You are their only hope for survival!
         \n (A) Use your newfound abilities to destroy all of Earth's human inhabitants.
         \n (B) Content yourself with a life on Earth and the guilt of betraying your entire species", 
-        { id: '6A', gameOver?: false, text: "\n\nAs you gear up to destroy an entire species (not yours, of course), you begin to realize that you powers 
-        are greater than you ever imagined. You need not be confined to mortal concerns, you are beyond death! \nGAME OVER! YOU WON! For now...
+        { id: '6A', gameOver?: true, text: "\n\nAs you gear up to destroy an entire species (not yours, of course), you begin to realize that you powers 
+        are greater than you ever imagined. You need not be confined to mortal concerns, you are beyond death! \n\nGAME OVER! YOU WON! For now...
         Your journey awaits in SEQUENCE: THE EPILOGUE"}, 
         { id: '6B', gameOver?: true, text: "\n\nYou have condemned your species to death! Wow, you are cold-blooded! Unfortunately, several government were on your
-        tail! You are caught and experimented on! \nGAME OVER! YOU LOST!"}, '5A')
+        tail! You are caught and experimented on! \nGAME OVER! YOU LOST! TRY AGAIN!"}, '5A')
     end
 
     def self.all

@@ -10,7 +10,7 @@ class Story < ActiveRecord::Base
     def gameOver?(choice)
         if(choice[:gameOver?])
             if(choice[:id] == '6A')
-                puts 'Congrats you won!'
+                puts choice[:text]
             else
                 puts choice[:text]
                 puts "Wow #{self.player.username} you've died #{self.player.deaths + 1}"
@@ -62,7 +62,6 @@ class Story < ActiveRecord::Base
     def story 
         level(choices[0]) ## ['00']
         until self.isGameOver == true do
-            p lastChoice
             selection(lastChoice)
         end
     end    

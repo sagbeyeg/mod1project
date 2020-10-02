@@ -11,19 +11,19 @@ class Cli
     end
 
     def self.determinePlayer# #INTRO
-        response = grabInput('Welcome to Sequence, (A)Create Account (B) Sign in')
+        response = grabInput("\n\nWELCOME TO SEQUENCE! Select an option! \n(A)Create Account (B) Sign in")
         if(response == 'A')
-            name = grabInput('Enter your name')
-            username = grabInput('Enter your username')
+            name = grabInput("\nEnter your name")
+            username = grabInput("\nEnter your username")
             until (allUsernames.include?(username) == false) do
-                username = grabInput('Enter your username')
+                username = grabInput("\nEnter your username")
             end
             player = Player.create({ name: name , username: username })
             elsif(response == 'B')
-            username = grabInput('Enter your username')
+            username = grabInput("\nEnter your username")
             player = Player.find_by(username: username)
             if(player == nil)
-                name = grabInput("That username didnt exist, but it's yours now! Whats your *og* name?")
+                name = grabInput("\nThat username didnt exist, but it's yours now! Whats your *og* name?")
                 player = Player.create({name:name, username: username})
             end
         end
