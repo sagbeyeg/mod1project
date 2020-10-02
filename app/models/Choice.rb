@@ -19,7 +19,7 @@ class Choice
         @@player = player
     end
 
-    def self.playerName
+    def self.player_name
         self.player.name
     end
 
