@@ -19,7 +19,7 @@ class Choice
         @@player = player
     end
 
-    def playerName
+    def self.playerName
         self.player.name
     end
 
@@ -30,7 +30,7 @@ class Choice
         \nreaching up so high that you'd mistaken it for the night sky. Do you? 
         \n(A) Touch the dome, it could be dangerous, but you get the feeling that it could jog your memory
         \n(B) Forget about the wall! Potential death is approaching! Run!"
-        choice = Choice.new(intro, { id: '0A', gameOver?: false }, {id: '0B', gameOver?: false}, '00')
+        choice = Choice.new(intro, { id: '0A', gameOver?: false }, {id: '0B', gameOver?: true}, '00')
 
 
         #LEVEL 1 -> From intro, (A) you touch the dome
@@ -49,7 +49,7 @@ class Choice
         \n (A) Taking a chance has worked for you so far, you follow the music
         \n (B) Why would there be music in a rainforest? That can't mean anything good for you, you head in the opposite direction", 
         { id: '2A', gameOver?: true, text: "You fell right into their trap! Let's hope the experiments don't hurt too badly. \nGAME OVER! YOU LOST!"}, 
-        {id: '2B', gameOver?: false}, '0B')
+        {id: '2B', gameOver?: false}, '1A')
 
         #LEVEL 3 -> From level 2, (B) you head away from the music
         choice_level3 = Choice.new("You step carefully in the opposite direction, well aware that any careless step could lead to death by 
