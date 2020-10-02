@@ -20,7 +20,7 @@ class Choice
     end
 
     def self.player_name
-        @@player.name
+        self.player.name
     end
 
     # choice.player_name to ref current player
@@ -28,7 +28,7 @@ class Choice
     def self.create 
         intro = "\n\nBEGIN
         You're running scared, you have no idea how you got here, where *here* even is, or why you're almost certain 
-        that slowing down would mean your death. As you turn the corner you see...a pitch black wall? No...
+        that slowing down would mean your deathgit . As you turn the corner you see...a pitch black wall? No...
         it's a dome reaching up so high that you'd mistaken it for the night sky. Do you? 
         \n(A) Touch the dome, it could be dangerous, but you get the feeling that it could jog your memory
         \n(B) Forget about the wall! Potential death is approaching! Run!"

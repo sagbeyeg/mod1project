@@ -3,14 +3,6 @@ require_relative 'Choice.rb'
 class Story < ActiveRecord::Base
     belongs_to :player
 
-    # checkIfProgressSaved
-
-    # findWhereLeftOff 
-    # Player.lastChoice_ID -> map through Choice.all and find the Choice that has the same last choice ID 
-    def playerName
-        self.player.name
-    end
-
     def choices 
         Choice.all
     end
@@ -18,6 +10,11 @@ class Story < ActiveRecord::Base
     def gameOver?(choice)
         if(choice[:gameOver?])
             puts choice[:text]
+            puts "Wow #{self.player.username} you've died #{self.player.deaths + 1}"
+
+            Player.create({name: self.player.name, username: self.player.username, LastChoice_ID: nil, deaths: self.player.deaths + 1})
+            Player.destroy_by(id: self.player.id)
+            
             self.isGameOver = true 
         end
     end
@@ -28,7 +25,6 @@ class Story < ActiveRecord::Base
     end
 
     def level(choice)
-
         user_input = grabInput(choice.question)
         gameSaved?(user_input)
         player_choice = (user_input.upcase == 'A') ? choice.a_choice : choice.b_choice
@@ -38,7 +34,7 @@ class Story < ActiveRecord::Base
 
     def gameSaved?(user_input)
         if(user_input == 'S')
-            Player.create({name: self.player.name, username: self.player.username, LastChoice_ID: self.lastChoice })
+            Player.create({name: self.player.name, username: self.player.username, LastChoice_ID: self.lastChoice})
             Player.destroy_by(id: self.player.id)
             exit 
         end
