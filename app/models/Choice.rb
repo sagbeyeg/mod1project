@@ -20,19 +20,20 @@ class Choice
     end
 
     def self.player_name
-        self.player.name
+        @@player.name
     end
 
     # choice.player_name to ref current player
     
     def self.create 
-        intro = "\n\nBEGIN
+        intro = "\n\nPRESS S TO SAVE YOUR PROGRESS AT ANY LEVEL \nPRESS A TO SELECT CHOICE A \nPRESS B TO SELECT CHOICE B \n\nBEGIN
         You're running scared, you have no idea how you got here, where *here* even is, or why you're almost certain 
         that slowing down would mean your deathgit . As you turn the corner you see...a pitch black wall? No...
         it's a dome reaching up so high that you'd mistaken it for the night sky. Do you? 
         \n(A) Touch the dome, it could be dangerous, but you get the feeling that it could jog your memory
         \n(B) Forget about the wall! Potential death is approaching! Run!"
-        choice = Choice.new(intro, { id: '0A', gameOver?: false }, {id: '0B', gameOver?: true, text: "\n\nYou missed your only escape! You died!\n GAME OVER! YOU LOST"}, '00')
+        choice = Choice.new(intro, { id: '0A', gameOver?: false }, 
+        {id: '0B', gameOver?: true, text: "\n\nYou missed your only escape! You died!\n GAME OVER! YOU LOST"}, '00')
 
 
         #LEVEL 1 -> From intro, (A) you touch the dome
@@ -70,7 +71,7 @@ class Choice
 
         #LEVEL 4 -> From level 3, (B) you wait for the approaching person
         choice_level4 = Choice.new("\n\nLEVEL 4
-        The person approaches you panting but with a huge smile on their face, they say, '#{Choice.player_name}! 
+        The person approaches you panting but with a huge smile on their face, they say, '#{Choice.player_name.upcase}! 
         I looked everywhere! I'm so glad I found you!', and reach out to hug you. Do you?
         \n (A) Hit them! Clearly this is a trap!
         \n (B) Permit the hug. Maybe you can trust them? A hug wouldn't hurt, you could use some comfort", 
@@ -95,9 +96,11 @@ class Choice
         all humans and claim this planet. You are their only hope for survival!
         \n (A) Use your newfound abilities to destroy all of Earth's human inhabitants.
         \n (B) Content yourself with a life on Earth and the guilt of betraying your entire species", 
-        { id: '6A', gameOver?: true, text: "As you gear up to destroy an entire species (not yours, of course) you begin to realize that you powers are greater than . You \nGAME OVER! YOU WON! For now... \n Your journey awaits in SEQUENCE: THE EPILOGUE"}, 
-        { id: '6B', gameOver?: true, text: "\n\nYou have condemned your species to death! Wow, you are cold-blooded! Unfortunately, several government were on your 
-        \n tail! You are caught and experimented on! \nGAME OVER! YOU LOST!"}, '5A')
+        { id: '6A', gameOver?: false, text: "\n\nAs you gear up to destroy an entire species (not yours, of course), you begin to realize that you powers 
+        are greater than you ever imagined. You need not be confined to mortal concerns, you are beyond death! \nGAME OVER! YOU WON! For now...
+        Your journey awaits in SEQUENCE: THE EPILOGUE"}, 
+        { id: '6B', gameOver?: true, text: "\n\nYou have condemned your species to death! Wow, you are cold-blooded! Unfortunately, several government were on your
+        tail! You are caught and experimented on! \nGAME OVER! YOU LOST!"}, '5A')
     end
 
     def self.all
