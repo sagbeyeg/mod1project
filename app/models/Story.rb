@@ -9,11 +9,15 @@ class Story < ActiveRecord::Base
 
     def gameOver?(choice)
         if(choice[:gameOver?])
-            puts choice[:text]
-            puts "Wow #{self.player.username} you've died #{self.player.deaths + 1}"
+            if(choice[:id] == '6A')
+                puts 'Congrats you won!'
+            else
+                puts choice[:text]
+                puts "Wow #{self.player.username} you've died #{self.player.deaths + 1}"
 
-            Player.create({name: self.player.name, username: self.player.username, LastChoice_ID: nil, deaths: self.player.deaths + 1})
-            Player.destroy_by(id: self.player.id)
+                Player.create({name: self.player.name, username: self.player.username, LastChoice_ID: nil, deaths: self.player.deaths + 1})
+                Player.destroy_by(id: self.player.id)
+            end
             
             self.isGameOver = true 
         end
